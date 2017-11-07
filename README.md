@@ -37,3 +37,8 @@ $ python coldsnap.py \
   --tvmstore_snapshot_lifetime 120 \
   --vms vm1.example.com vm2.example.com
 ```
+
+## Dependancies
+
+* https://github.com/puppetlabs/py-vmware is imported
+* https://github.com/Tintri/tintri-rest-api is embedded
