@@ -218,11 +218,12 @@ def tintri_snapshot(args, vm):
         if num_vms == 0:
             raise tintri.TintriRequestsException("VM " + vm.name + " doesn't exist")
 
-        # Get the information from the first item and hopefully the only item.
+        # # Get the information that matches the vm name
         items = vm_paginated_result["items"]
-        vm = items[0]
-        vm_name = vm["vmware"]["name"]
-        vm_uuid = vm["uuid"]["uuid"]
+        for item in items:  
+          if item["vmware"]["name"] in vm.name:
+            vm_name = item["vmware"]["name"]
+            vm_uuid = item["uuid"]["uuid"]
 
         print_info(vm_name + " UUID: " + vm_uuid)
 
